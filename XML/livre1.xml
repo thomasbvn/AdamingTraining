@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<livre1>
+<auteurs>
+	<auteur1>Thomas Bienvenu</auteur1>
+	<auteur2>Marcel Aymé</auteur2>
+	</auteurs>
+	<section1>
+		<chapitre1>
+			<paragraphe>Il était une fois un formateur.
+			</paragraphe>
+			<paragraphe>Auparavant, il était développeur.
+			</paragraphe>
+		</chapitre1>
+		<chapitre2>
+			<paragraphe>Recruté à l'INTI, il a choisi d'enseigner la
+				programmation en JAVA JEE uniquement.
+			</paragraphe>
+			<paragraphe>En charge d'une promotion du 10 juin au 17 septembre
+				2019, il se base à Lomme.
+			</paragraphe>
+		</chapitre2>
+	</section1>
+	<section2>
+		<chapitre1>
+			<paragraphe>Le groupe Adaming lui confie la formation de 13 élèves.
+			</paragraphe>
+			<paragraphe>Les progrès de la promotion furent remarquables.
+			</paragraphe>
+		</chapitre1>
+		<chapitre2>
+			<paragraphe>Sa méthode basée sur le site Codingame porta ses fruits.
+			</paragraphe>
+			<paragraphe>Ses questionnaires Google Forms furent remplis de façon
+				satisfaisante par les stagiaires.
+			</paragraphe>
+		</chapitre2>
+	</section2>
+</livre1>

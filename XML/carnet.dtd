@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT carnet (personne+)>
+<!ATTLIST carnet
+titre ID #REQUIRED><!-- ID means solo-->
+<!ELEMENT personne EMPTY>
+<!ATTLIST personne
+nom CDATA #REQUIRED
+prenom CDATA #IMPLIED
+telephone CDATA #REQUIRED>
