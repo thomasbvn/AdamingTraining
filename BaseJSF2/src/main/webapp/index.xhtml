@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://xmlns.jcp.org/jsf/core"
+xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head> 
+<title>JSF 2.2 Hello World</title> 
+</h:head> 
+<h:body bgcolor="white"> 
+<h:form>
+<fieldset>
+<legend>Valid action</legend>
+Click button. You should get success page.<br /> 
+<h:commandButton value="Click (Good)" action="#{decisionBean.calcul}" />
+<!-- <h:commandButton value="Click (Good)" action="success"/> -->
+</fieldset>
+<p />
+<!-- 
+<fieldset>
+<legend>Invalid action</legend>
+<h:commandButton value="Click (Bad)" action="echec"/>
+</fieldset> -->
+</h:form>
+</h:body>
+</html>
