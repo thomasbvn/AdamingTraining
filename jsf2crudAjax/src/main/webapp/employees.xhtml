@@ -1,0 +1,132 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html">
+	<h:head>
+		<h:outputStylesheet>
+            th, td {
+                text-align: center;
+            }
+
+            h3 {
+                margin-top: 0;
+                text-align: center;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                box-sizing: border-box;
+                -webkit-box-sizing:border-box;
+                -moz-box-sizing: border-box;
+            }
+			.ui-g-8{
+				border : 1px solid #f5f5f5;
+			}
+        </h:outputStylesheet>
+	</h:head>
+	<h:body>
+		<p:outputPanel>
+			<div class="ui-g">
+				<div class="ui-g-2" />
+				<div class="ui-g-8">
+
+
+					<h:form id="employees">
+						<p:growl id="growl" sticky="true" />
+						<p:dataTable id="employeeList" var="employee" widgetVar="EmpsTable"
+							value="#{employeeBacking.employees}" rows="10" paginator="true"
+							paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+							
+							<p:ajax event="sort" skipChildren="true" />
+							<p:column headerText="Id" sortBy="#{employee.empId}">
+								<h:outputText value="#{employee.empId}" />
+							</p:column>
+
+							<p:column headerText="First name" sortBy="#{employee.firstName}" filterBy="#{employee.firstName}"   footerText="contains" filterMatchMode="contains">
+								<p:inputText id="firstNameInput" value="#{employee.firstName}" />
+							</p:column>
+
+							<p:column headerText="Last name">
+								<p:inputText id="lastNameInput" value="#{employee.lastName}" />
+							</p:column>
+
+							<p:column headerText="Title" sortBy="#{employee.title}">
+								<p:inputText id="titleInput" value="#{employee.title}" />
+							</p:column>
+
+							<p:column headerText="Start Date">
+								<h:outputText value="#{employee.startDate}">
+									<f:convertDateTime type="localDate" pattern="yyyy-dd-MM" />
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="Manager ID"
+								sortBy="#{employee.manager.empId}">
+								<h:outputText value="#{employee.manager.empId}" />
+							</p:column>
+
+							<p:column>
+								<p:commandButton update="employeeList" value="Delete"
+									icon="ui-icon-closethick"
+									action="#{employeeBacking.delete(employee)}"
+									styleClass="ui-priority-primary">
+								</p:commandButton>
+							</p:column>
+						</p:dataTable>
+						<br />
+						<p:commandButton style="float: right" id="save" value="Save"
+							tyleClass="ui-priority-primary"
+							action="#{employeeBacking.update}" icon="ui-icon-disk"
+							update="growl">
+							<f:ajax execute="@form" render="@form" />
+						</p:commandButton>
+					</h:form>
+				</div>
+
+				<div class="ui-g-2"></div>
+			</div>
+
+			<h3>Create A new Employee</h3>
+			<div class="ui-g">
+				<div class="ui-g-2"></div>
+				<div class="ui-g-8">
+					<h:form id="add">
+						<h:panelGrid columns="3" cellpadding="5" style="margin: 0 auto;">
+							<p:outputLabel for="firstName" value="First name" />
+							<p:inputText id="firstName" required="true"
+								value="#{employeeBacking.emp.firstName}" />
+							<p:message for="firstName" />
+
+							<p:outputLabel for="lastName" value="Last name" />
+							<p:inputText id="lastName" required="true"
+								value="#{employeeBacking.emp.lastName}">
+							</p:inputText>
+							<p:message for="lastName" />
+
+							<p:outputLabel for="title" value="Title" />
+							<p:inputText id="title" 
+							value="#{employeeBacking.emp.title}">
+							</p:inputText>
+							<p:message for="title" />
+
+							<p:outputLabel for="startDate" value="Start Date" />
+							<p:calendar id="startDate" required="true"
+								value="#{employeeBacking.emp.startDate}" pattern="yyyy-dd-MM"
+								mask="true">
+								<f:convertDateTime type="localDate" pattern="yyyy-dd-MM" />
+							</p:calendar>
+							<p:message for="startDate" />
+
+							<p:commandButton update="@form :employees:employeeList"
+								value="Add" action="#{employeeBacking.add}">
+							</p:commandButton>
+						</h:panelGrid>
+					</h:form>
+				</div>
+				<div class="ui-g-2"></div>
+			</div>
+		</p:outputPanel>
+	</h:body>
+</f:view>
+</html>

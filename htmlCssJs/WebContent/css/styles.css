@@ -1,0 +1,22 @@
+body {
+	background: url('Images/adaming.png') no-repeat center fixed;
+}
+
+<!-- h1,h2 {
+	text-align: center;
+}-->
+fixe.h1{
+	text-align: center;
+	position: static;
+}
+fixe.h2{
+	text-align: center;
+	position: static;
+}
+<!-- .fixe h1{text-align: absolute;}-->
+
+table,tr,th {
+  border: 1px solid black;
+  font: 16px "Open Sans", Helvetica, Arial, sans-serif;
+}
+table{margin: auto}
